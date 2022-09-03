@@ -48,6 +48,3 @@ class Digit:
         values = [0,0,0,0,0,0,0]
         for segment in self.segments:
             segment.setOff()
-#
-#
-#

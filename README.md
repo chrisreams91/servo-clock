@@ -26,7 +26,7 @@ sudo apt-get install i2c-tools
 
 sudo i2cdetect -y 1
 
-sudo raspi-config and enable i2c and spa
+sudo raspi-config - enable i2c and spa - configure timezone
 
 2: Circuit python lib installation
 
