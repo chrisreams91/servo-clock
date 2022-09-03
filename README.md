@@ -1,4 +1,4 @@
-# 3d printed servo-clock
+# 3d Printed Servo Motor Clock
 
 Prusa i3 MK3S+ 3D Printer
 
@@ -18,7 +18,7 @@ Used https://www.thingiverse.com/thing:3266949 for the design and list of materi
 
 28x servo motors https://www.amazon.com/gp/product/B072V529YD/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 
-Originaly tried these boards but they did not work on arrival https://www.amazon.com/Onyehn-Channel-PCA9685-Arduino-Raspberry/dp/B07GJCPWW2
+Originally tried these boards but they did not work on arrival https://www.amazon.com/Onyehn-Channel-PCA9685-Arduino-Raspberry/dp/B07GJCPWW2
 
 # Setting up the Pi from factory reset
 
@@ -32,10 +32,13 @@ Originaly tried these boards but they did not work on arrival https://www.amazon
 
    sudo apt-get git
 
-   sudo i2cdetect -y 1
-
    sudo raspi-config #enable i2c and spa / configure timezone
+   ```
 
+   To verify boards hardware is connected to pi correctly
+
+   ```
+   i2cdetect -y 1
    ```
 
 2. Circuit python lib installation
@@ -57,7 +60,6 @@ Originaly tried these boards but they did not work on arrival https://www.amazon
    wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
 
    sudo python3 raspi-blinka.py
-
    ```
 
 3. Validating setup was done correctly
@@ -89,7 +91,6 @@ Originaly tried these boards but they did not work on arrival https://www.amazon
    git clone https://github.com/chrisreams91/servo-clock.git
 
    sudo nano /etc/rc.local
-
    ```
 
    and add
