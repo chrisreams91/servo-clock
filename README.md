@@ -1,10 +1,12 @@
 # 3d printed servo-clock
 
-Prusa i3 MK3S+
+Prusa i3 MK3S+ 3D Printer
 
-Prusament PETG Urban Grey
+Prusament PETG Urban Grey For the All of the parts
 
-Used https://www.thingiverse.com/thing:3266949 for the design and followed http://www.otvinta.com/download14.html for list of required materials
+TBD for the segment covers
+
+Used https://www.thingiverse.com/thing:3266949 for the design and list of materials
 
 # Hardware
 
@@ -16,55 +18,82 @@ Used https://www.thingiverse.com/thing:3266949 for the design and followed http:
 
 28x servo motors https://www.amazon.com/gp/product/B072V529YD/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 
-Originaly used these boards but they did not work https://www.amazon.com/Onyehn-Channel-PCA9685-Arduino-Raspberry/dp/B07GJCPWW2
+Originaly tried these boards but they did not work on arrival https://www.amazon.com/Onyehn-Channel-PCA9685-Arduino-Raspberry/dp/B07GJCPWW2
 
 # Setting up the Pi from factory reset
 
-1: Basic pi config
+1. Basic pi config
 
-sudo apt-get install i2c-tools
+   ```sudo apt update
 
-sudo i2cdetect -y 1
+   sudo apt-get install i2c-tools
 
-sudo raspi-config - enable i2c and spa - configure timezone
+   sudo apt install git
 
-2: Circuit python lib installation
+   sudo apt-get git
 
-https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi
+   sudo i2cdetect -y 1
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python3-pip
+   sudo raspi-config #enable i2c and spa / configure timezone
 
-sudo pip3 install --upgrade setuptools
+   ```
 
-cd ~
-sudo pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
-sudo python3 raspi-blinka.py
+2. Circuit python lib installation
 
-3: Validating setup was done correctly
-run below script to validate
+   https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi
 
-////
-////
+   ```sudo apt-get update
 
-import board
-import digitalio
-import busio
+   sudo apt-get upgrade
 
-print("Hello blinka!")
+   sudo apt-get install python3-pip
 
-pin = digitalio.DigitalInOut(board.D4)
-print("Digital IO ok!")
+   sudo pip3 install --upgrade setuptools
 
-i2c = busio.I2C(board.SCL, board.SDA)
-print("I2C ok!")
+   cd ~
 
-spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
-print("SPI ok!")
+   sudo pip3 install --upgrade adafruit-python-shell
 
-print("done!")
+   wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py
 
-////
-////
+   sudo python3 raspi-blinka.py
+
+   ```
+
+3. Validating setup was done correctly
+
+   create and run the python script below to validate
+
+   ```
+   import board
+   import digitalio
+   import busio
+
+   print("Hello blinka!")
+
+   pin = digitalio.DigitalInOut(board.D4)
+   print("Digital IO ok!")
+
+   i2c = busio.I2C(board.SCL, board.SDA)
+   print("I2C ok!")
+
+   spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
+   print("SPI ok!")
+
+   print("done!")
+   ```
+
+4. install and set to run on boot
+
+   ```
+   git clone https://github.com/chrisreams91/servo-clock.git
+
+   sudo nano /etc/rc.local
+
+   ```
+
+   and add
+
+   ```
+   python /yourPathToDir/servo-clock/main.py
+   ```
