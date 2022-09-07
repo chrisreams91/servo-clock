@@ -45,6 +45,5 @@ class Digit:
                 segment.setOff()
 
     def setOff(self):
-        values = [0,0,0,0,0,0,0]
         for segment in self.segments:
             segment.setOff()
