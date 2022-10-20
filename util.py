@@ -13,6 +13,47 @@ numberMap = {
     9: [1,1,1,1,0,1,1]
 }
 
+# Some fine tuning on the digit positioning
+digitOffsetMap = {
+    "hoursDigitOne": {
+        0: 5,
+        1: -5,
+        2: 5,
+        3: -5,
+        4: 5,
+        5: -3,
+        6: -3,
+    },
+    "hoursDigitTwo": {
+        8: 0,
+        9: 5,
+        10: 8,
+        11: -8,
+        12: 0,
+        13: 0,
+        14: -5,
+    },
+     "minutesDigitOne": {
+        0: 15,
+        1: -10,
+        2: 0,
+        3: 5,
+        4: 0,
+        5: -10,
+        6: 10,
+    },
+     "minutesDigitTwo": {
+        8: 10,
+        9: -13,
+        10: 13,
+        11: 0,
+        12: 10,
+        13: -5,
+        14: 0,
+    }
+}
+
+
 class Segment:
     def __init__(self, channel, position, offset = 0):
         self.servo = servo.Servo(channel)
@@ -21,15 +62,15 @@ class Segment:
     
     def setOn(self):
         if self.position == 2 or self.position == 4:
-            self.servo.angle = 110  
+            self.servo.angle = 130 + self.offset
         else:
-            self.servo.angle = 0
+            self.servo.angle = 20 + self.offset
 
     def setOff(self):
         if self.position == 2 or self.position == 4:
-            self.servo.angle = 0
+            self.servo.angle = 20
         else:
-            self.servo.angle = 110  
+            self.servo.angle = 130  
 
 class Digit:
     def __init__(self, segments):

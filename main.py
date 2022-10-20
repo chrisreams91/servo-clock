@@ -2,7 +2,7 @@ import time
 import busio
 from board import SCL, SDA
 from adafruit_pca9685 import PCA9685
-from util import Segment, Digit
+from util import Segment, Digit, digitOffsetMap
 
 
 i2c = busio.I2C(SCL, SDA)
@@ -15,22 +15,22 @@ pcaMinutesBoard.frequency = 50
 
 hoursDigitOneSegments = []
 for i in range(7):
-    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitOneSegments))
+    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitOneSegments), digitOffsetMap["hoursDigitOne"][i])
     hoursDigitOneSegments.append(segment)
 
 hoursDigitTwoSegments = []
 for i in range(8,15):
-    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitTwoSegments))
+    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitTwoSegments), digitOffsetMap["hoursDigitTwo"][i])
     hoursDigitTwoSegments.append(segment)
 
 minutesDigitOneSegments = []
 for i in range(7):
-    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitOneSegments))
+    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitOneSegments), digitOffsetMap["minutesDigitOne"][i])
     minutesDigitOneSegments.append(segment)
 
 minutesDigitTwoSegments = []
 for i in range(8,15):
-    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitTwoSegments))
+    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitTwoSegments), digitOffsetMap["minutesDigitTwo"][i])
     minutesDigitTwoSegments.append(segment)
 
 
@@ -48,7 +48,7 @@ time.sleep(.2)
 minutesDigitOne.setOff()
 time.sleep(.2)
 minutesDigitTwo.setOff()
-time.sleep(.2)
+time.sleep(.5)
 
 
 while True:
