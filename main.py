@@ -55,7 +55,11 @@ while True:
     hour = time.strftime('%I')
     minute = time.strftime('%M')
 
-    hoursDigitOne.setNumber(int(hour[0]))
+    if int(hour[0]) == 0:
+        hoursDigitOne.setOff()
+    else:
+        hoursDigitOne.setNumber(int(hour[0]))
+
     hoursDigitTwo.setNumber(int(hour[1]))
     minutesDigitOne.setNumber(int(minute[0]))
     minutesDigitTwo.setNumber(int(minute[1]))
