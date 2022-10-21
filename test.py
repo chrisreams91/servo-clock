@@ -16,22 +16,22 @@ pcaMinutesBoard.frequency = 50
 
 hoursDigitOneSegments = []
 for i in range(7):
-    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitOneSegments), digitOffsetMap["hoursDigitOne"][i])
+    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitOneSegments), digitOffsetMap["hours"]["digitOne"][i])
     hoursDigitOneSegments.append(segment)
 
 hoursDigitTwoSegments = []
 for i in range(8,15):
-    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitTwoSegments), digitOffsetMap["hoursDigitTwo"][i])
+    segment = Segment(pcaHoursBoard.channels[i], len(hoursDigitTwoSegments), digitOffsetMap["hours"]["digitTwo"][i])
     hoursDigitTwoSegments.append(segment)
 
 minutesDigitOneSegments = []
 for i in range(7):
-    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitOneSegments), digitOffsetMap["minutesDigitOne"][i])
+    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitOneSegments), digitOffsetMap["minutes"]["digitOne"][i])
     minutesDigitOneSegments.append(segment)
 
 minutesDigitTwoSegments = []
 for i in range(8,15):
-    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitTwoSegments), digitOffsetMap["minutesDigitTwo"][i])
+    segment = Segment(pcaMinutesBoard.channels[i], len(minutesDigitTwoSegments), digitOffsetMap["minutes"]["digitTwo"][i])
     minutesDigitTwoSegments.append(segment)
 
 

@@ -1,14 +1,18 @@
-# 3d Printed Servo Motor Clock
+# 3D Printed Servo Motor Clock
+
+## Print
 
 Prusa i3 MK3S+ 3D Printer
 
-Prusament PETG Urban Grey For the All of the parts
+Prusament PETG Urban Grey for the frame
 
-TBD for the segment covers
+Prusament PETG Prusa Orange for segment covers
 
-Used https://www.thingiverse.com/thing:3266949 for the design and list of materials
+https://www.thingiverse.com/thing:3266949 - clock models
 
-# Hardware
+https://www.thingiverse.com/thing:4633685 - 10mm spacers for mounting the pi and PCA9685 boards
+
+## Hardware
 
 1x Raspberry Pi 3b+
 
@@ -20,7 +24,7 @@ Used https://www.thingiverse.com/thing:3266949 for the design and list of materi
 
 Originally tried these boards but they did not work on arrival https://www.amazon.com/Onyehn-Channel-PCA9685-Arduino-Raspberry/dp/B07GJCPWW2
 
-# Setting up the Pi from factory reset
+## Setting up the Pi from factory reset
 
 1. Basic pi config
 
@@ -62,7 +66,7 @@ Originally tried these boards but they did not work on arrival https://www.amazo
    sudo python3 raspi-blinka.py
    ```
 
-3. Validating setup was done correctly
+3. Validate setup was done correctly
 
    create and run the python script below to validate
 
@@ -85,7 +89,7 @@ Originally tried these boards but they did not work on arrival https://www.amazo
    print("done!")
    ```
 
-4. install and set to run on boot
+4. Install and set to run on boot
 
    ```
    git clone https://github.com/chrisreams91/servo-clock.git
