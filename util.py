@@ -37,7 +37,7 @@ digitOffsetMap = {
     },
     "minutes": {
         "digitOne": {
-                0: 15,
+                0: 10,
                 1: -10,
                 2: 0,
                 3: 5,
@@ -61,20 +61,19 @@ digitOffsetMap = {
 class Segment:
     def __init__(self, channel, position, offset = 0):
         self.servo = servo.Servo(channel)
-        self.position = position
-        self.offset = offset
-    
-    def setOn(self):
-        if self.position == 2 or self.position == 4:
-            self.servo.angle = 130 + self.offset
+
+        if position == 2 or position == 4:
+            self.onAngle = 130 + offset
+            self.offAngle = 20 + offset
         else:
-            self.servo.angle = 20 + self.offset
+            self.onAngle = 20 + offset
+            self.offAngle = 130 + offset
+        
+    def setOn(self):
+        self.servo.angle = self.onAngle
 
     def setOff(self):
-        if self.position == 2 or self.position == 4:
-            self.servo.angle = 20
-        else:
-            self.servo.angle = 130  
+        self.servo.angle = self.offAngle
 
 class Digit:
     def __init__(self, segments):
