@@ -1,5 +1,7 @@
 # 3D Printed Servo Motor Clock
 
+https://user-images.githubusercontent.com/26492991/197689508-0c8be994-d383-4e2d-bab2-861c26940dce.mp4
+
 ## Print
 
 Prusa i3 MK3S+ 3D Printer
